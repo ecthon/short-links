@@ -5,6 +5,16 @@ import postgres from 'postgres'
 
 const app = fastify()
 
+app.get('/links', async (request, reply) => {
+  const result = await sql/*sql*/`
+    SELECT *
+    FROM short_links
+    ORDER BY created_at DESC
+  `
+
+  return result
+})
+
 app.post('/links', async (request, reply) => {
   const createLinkSchema = z.object({
     code: z.string().min(3),
@@ -34,7 +44,6 @@ app.post('/links', async (request, reply) => {
     return reply.status(500).send({ message: 'Internal error.' })
   }
 })
-
 
 
 app.listen({

@@ -2,6 +2,10 @@ POST http://localhost:3333/links
 Content-Type: application/json
 
 {
-  "code": "ecthon",
-  "url": "https://github.com/ecthon"
+  "code": "teste",
+  "url": "https://teste.com/nodejs"
 }
+
+###
+
+GET http://localhost:3333/links
